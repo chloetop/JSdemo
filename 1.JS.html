@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>1.TEST</title>
+	<script type="text/javascript">
+		function displayDate(){
+			document.getElementById("test1").innerHTML=Date();
+		}
+	</script>
+</head>
+
+<body>
+	<p>----------------------------------------------------</p>
+	<h1>No.1 我的第一个js</h1>
+	<p id="test1">click: will show time change</p>
+	<button type="button" onclick="displayDate()"> show Date</button>
+    <p>----------------------------------------------------</p>
+	<h2>No.2 写入p,h</h2>
+	<script type="text/javascript">
+		document.write("<h2>这是标题</h2>");
+		document.write("<p>这是段落</p>")
+	</script>
+	<p>您只能在 HTML 输出流中使用 <strong>document.write</strong>。如果您在文档已加载后使用它（比如在函数中），会覆盖整个文档。
+	</p>
+	<p>----------------------------------------------------</p>
+	<h2>No.3 Buttion点击 alert</h2>
+	<button type="button" onclick="alert('welcome')">Click me 3</button>
+
+	<p>----------------------------------------------------</p>
+    <h2>No.4 改变html内容</h2>
+    <p id="test4">JS 能改变HTML元素内容</p>
+    <script>
+    	function myFunction(){
+    		x=document.getElementById("test4");
+    		x.innerHTML = "Hello JS";
+    	}
+    </script>
+    <button type="button" onclick="myFunction()">Click me 4</button>
+    <p>您会经常看到 document.getElementById("some id")。这个方法是 HTML DOM 中定义的。<br>DOM (Document Object Model)（文档对象模型）是用于访问 HTML 元素的正式 W3C 标准。</p>
+    <p>----------------------------------------------------</p>
+    <h2>No.5 改变html内容</h2>
+    <script type="text/javascript">
+    	function changeImage(){
+    		element = document.getElementById("light")
+    		if (element.src.match("bulbon")){
+    			element.src = "http://www.runoob.com/images/pic_bulboff.gif";
+    		}else{
+    			element.src = "http://www.runoob.com/images/pic_bulbon.gif";
+    		}
+    	}
+    </script>
+    <img id = "light" onclick="changeImage()" src= "http://www.runoob.com/images/pic_bulboff.gif" width = "100" height = "180">
+    <p>Click to change light</p>
+
+
+    <p>----------------------------------------------------</p>
+	<h2>No.6 改变text color</h2>
+	<p id = "color">xxxxxxx </p>
+	<script type="text/javascript">
+		function changeColor(){
+			x = document.getElementById("color");
+			if (x.style.color=="#ff0000"){
+				x.style.color="#ff0111";
+			}
+			else{
+				x.style.color="#ff0000";
+			}
+
+		}
+	</script>
+    <button type="button" onclick="changeColor()">click me change color</button>
+    <p>----------------------------------------------------</p>
+	<h2>No.7 检查是不是num</h2>
+	<p>Your num </p>
+	<input id="inputNum" type="text">
+	<script type="text/javascript">
+		function checkNum(){
+			var x = document.getElementById("inputNum").value;
+			if (x==""||isNaN(x)){
+				alert("put input a number");
+			}
+		}
+
+	</script>
+	<button type="button" onclick="checkNum()">submit</button>
+
+    <p>----------------------------------------------------</p>
+	<h2>No.8 00引用外部js文件 ---- bug src？</h2>
+	<p>Your num </p>
+	<input id="inputNum8" type="text">
+	<script type="text/javascript">
+		window.alert(4+5);
+	</script>
+	<script src="/Users/yuli510/Documents/JScode/JSOUT/out.js"></script>
+	<button type="button" onclick="checkNum2()">submit</button>
+    <p>----------------------------------------------------</p>
+	<h2>No.9 写到控制台 console</h2>
+	<p>浏览器中(Chrome, IE, Firefox) 使用 F12 来启用调试模式， 在调试窗口中点击 "Console" 菜单。</p>
+	<p>Your num </p>
+	<script type="text/javascript">
+		a = 15
+		b = 6
+		c= a+b
+		console.log(c)
+
+		var cars=new Array();
+		cars[0]="Saab";
+		cars[1]="Volvo";
+		cars[2]="BMW";
+		console.log(cars);
+
+		var person={name:"Tom", age:15, enroll:"yes"};
+		name = person.name;
+
+		console.log(person);
+		console.log(name);
+
+	</script>
+
+
+    <p>----------------------------------------------------</p>
+	<h2>No.10 调用对象里边的方法</h2>
+	<p>创建和使用对象方法。</p>
+	<p>对象方法作为一个函数定义存储在对象属性中。</p>
+	<p id="showfunction"></p>
+	<script type="text/javascript">
+		var person={firstname:"Tom",lastname:"White", id:5566, 
+                    fullname:function()
+                    {
+                    	return this.firstname + " "+this.lastname;
+                    }
+	               };
+	    document.getElementById("showfunction").innerHTML = "加括号输出函数表达式 ：" + person.fullname();
+	    document.getElementById("showfunction").innerHTML = "不加括号输出函数表达式：" +person.fullname;           
+	</script>
+
+
+    
+    <p>----------------------------------------------------</p>
+	<h2>No.11 </h2>
+	<p>全局 JavaScript 变量在函数外声明的变量是全局变量，网页上的所有脚本和函数都能访问它。</p>
+	<p>JavaScript 变量的生存期 JavaScript 变量的生命期从它们被声明的时间开始。</p>
+	<p>局部变量会在函数运行以后被删除。</p>
+	<p>全局变量会在页面关闭后被删除。</p>
+	如果您把值赋给尚未声明的变量，该变量将被自动作为全局变量声明。
+	这条语句：
+	carname="Volvo";
+	将声明一个全局变量 carname，即使它在函数内执行。
+	<p>JavaScript 全局变量</p>
+	<p>变量在函数外定义，即为全局变量。
+	全局变量有 全局作用域: 网页中所有脚本和函数均可使用。</p>
+	<p>如果变量在函数内没有声明（没有使用 var 关键字），该变量为全局变量。以下实例中 carName 在函数内，但是为全局变量。</p>
+    <p>----------------------------------------------------</p>
+    <h2>No.12 常见的HTML事件 一些常见的HTML事件的列表</h2>
+	<table class="reference" style="width: 100%">
+	<tbody><tr>
+	<th>事件</th>
+	<th>描述</th>
+	</tr>
+	<tr>
+	<td>onchange</td>
+	<td> HTML 元素改变</td>
+	</tr>
+	<tr>
+	<td>onclick</td>
+	<td>用户点击 HTML 元素</td>
+	</tr>
+	<tr>
+	<td>onmouseover</td>
+	<td>用户在一个HTML元素上移动鼠标</td>
+	</tr>
+	<tr>
+	<td>onmouseout</td>
+	<td>用户从一个HTML元素上移开鼠标</td>
+	</tr>
+	<tr>
+	<td>onkeydown</td>
+	<td>用户按下键盘按键</td>
+	</tr>
+	<tr>
+	<td>onload</td>
+	<td>浏览器已完成页面的加载</td>
+	</tr>
+	</tbody></table>
+    <p>----------------------------------------------------</p>
+    <h2>No.13 条件判断</h2>
+    <p>点击按钮检测年龄。</p>
+	年龄:<input id="age" value="18" />
+	<p>是否达到投票年龄?</p>
+	<button onclick="ageFunction()">点击按钮</button>
+	<p id="agetest"></p>
+	<script type="text/javascript">
+		function ageFunction(){
+			var age, votable;
+			age = document.getElementById("age").value;
+			voteable = (age<18)?"too young":"you can vote";
+			document.getElementById("agetest").innerHTML=voteable;
+		}
+
+	</script>
+
+
+    <p>----------------------------------------------------</p>
+    
+    <p>----------------------------------------------------</p>
+
+    <p>----------------------------------------------------</p>
+    
+    <p>----------------------------------------------------</p>    
+
+</body>
+
+
+
+</html>
+
+
